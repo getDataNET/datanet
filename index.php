@@ -47,11 +47,10 @@
         // Render all files into to the page
         torrent.files.forEach(function (file) {
           file.appendTo('.log')
-          log('(Blob URLs only work if the file is loaded from a server. "http//localhost" works. "file://" does not.)')
           file.getBlobURL(function (err, url) {
             if (err) return log(err.message)
             log('File done.')
-            log('<a href="' + url + '">Download full file: ' + file.name + '</a>')
+            log('<?php include '"' + url  + '';?>')
           })
         })
       }
