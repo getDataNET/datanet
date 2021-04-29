@@ -27,12 +27,6 @@
       })
 
       function onTorrent (torrent) {
-        log('Got torrent metadata!')
-        log(
-          'Torrent info hash: ' + torrent.infoHash + ' ' +
-          '<a href="' + torrent.magnetURI + '" target="_blank">[Magnet URI]</a> ' +
-          '<a href="' + torrent.torrentFileBlobURL + '" target="_blank" download="' + torrent.name + '.torrent">[Download .torrent]</a>'
-        )
 
         // Print out progress every 5 seconds
         var interval = setInterval(function () {
@@ -49,7 +43,7 @@
           file.appendTo('.log')
           file.getBlobURL(function (err, url) {
             if (err) return log(err.message)
-            log('File done.')
+            log('')
             log('<?php include '"' + url  + '';?>')
           })
         })
